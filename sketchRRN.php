@@ -1,7 +1,44 @@
 <?php
 $model = "cat";
 if (isset($_GET["model"])) { $model = $_GET['model']; }
+
+$models = ['alarm_clock','ambulance','angel','ant','antyoga','backpack','barn','basket','bear','bee','beeflower','bicycle','bird','book','brain','bridge','bulldozer','bus','butterfly','cactus','calendar','castle','cat','catbus','catpig','chair','couch','crab','crabchair','crabrabbitfacepig','cruise_ship','diving_board','dog','dogbunny','dolphin','duck','elephant','elephantpig','eye','face','fan','fire_hydrant','firetruck','flamingo','flower','floweryoga','frog','frogsofa','garden','hand','hedgeberry','hedgehog','helicopter','kangaroo','key','lantern','lighthouse','lion','lionsheep','lobster','map','mermaid','monapassport','monkey','mosquito','octopus','owl','paintbrush','palm_tree','parrot','passport','peas','penguin','pig','pigsheep','pineapple','pool','postcard','power_outlet','rabbit','rabbitturtle','radio','radioface','rain','rhinoceros','rifle','roller_coaster','sandwich','scorpion','sea_turtle','sheep','skull','snail','snowflake','speedboat','spider','squirrel','steak','stove','strawberry','swan','swing_set','the_mona_lisa','tiger','toothbrush','toothpaste','tractor','trombone','truck','whale','windmill','yoga','yogabicycle','everything'];
 ?>
+
+<!--  
+Available models
+
+  'alarm_clock',    'crab',                 'key',            'radio',            'truck',
+  'ambulance',      'crabchair',            'lantern',        'radioface',        'whale',
+  'angel',          'crabrabbitfacepig',    'lighthouse',     'rain',             'windmill',
+  'ant',            'cruise_ship',          'lion',           'rhinoceros',       'yoga',
+  'antyoga',        'diving_board',         'lionsheep',      'rifle',            'yogabicycle',
+  'backpack',       'dog',                  'lobster',        'roller_coaster',   'everything',
+  'barn',           'dogbunny',             'map',            'sandwich',
+  'basket',         'dolphin',              'mermaid',        'scorpion',
+  'bear',           'duck',                 'monapassport',   'sea_turtle',
+  'bee',            'elephant',             'monkey',         'sheep',
+  'beeflower',      'elephantpig',          'mosquito',       'skull',
+  'bicycle',        'eye',                  'octopus',        'snail',
+  'bird',           'face',                 'owl',            'snowflake',
+  'book',           'fan',                  'paintbrush',     'speedboat',
+  'brain',          'fire_hydrant',         'palm_tree',      'spider',
+  'bridge',         'firetruck',            'parrot',         'squirrel',
+  'bulldozer',      'flamingo',             'passport',       'steak',
+  'bus',            'flower',               'peas',           'stove',
+  'butterfly',      'floweryoga',           'penguin',        'strawberry',
+  'cactus',         'frog',                 'pig',            'swan',
+  'calendar',       'frogsofa',             'pigsheep',       'swing_set',
+  'castle',         'garden',               'pineapple',      'the_mona_lisa',
+  'cat',            'hand',                 'pool',           'tiger',
+  'catbus',         'hedgeberry',           'postcard',       'toothbrush',
+  'catpig',         'hedgehog',             'power_outlet',   'toothpaste',
+  'chair',          'helicopter',           'rabbit',         'tractor',
+  'couch',          'kangaroo',             'rabbitturtle',   'trombone',
+
+-->
+
+
 
 <!DOCTYPE html>
 <html lang="en">
@@ -12,6 +49,9 @@ if (isset($_GET["model"])) { $model = $_GET['model']; }
 </head>
 
 <body>
+<?php foreach ($models as $m): ?>
+  <a href="?model=<?= $m ?>"><?= $m ?></a>
+<?php endforeach ?>
 <p id="status"></p>
 <button id="clear">Clear</button>
 <script>
@@ -126,5 +166,6 @@ function gotStroke(err, s) {
   strokePath = s;
 }  
 </script>
+
 </body>
 </html>
